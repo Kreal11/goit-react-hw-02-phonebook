@@ -1,5 +1,11 @@
 import { Component } from 'react';
 import Notiflix from 'notiflix';
+import {
+  StyledAddContactInput,
+  StyledAddContactForm,
+  StyledAddContactLabel,
+  StyledAddContactButton,
+} from './AddContact.styled';
 
 export class AddContact extends Component {
   state = {
@@ -26,9 +32,11 @@ export class AddContact extends Component {
     const { name, number } = this.state;
     return (
       <div>
-        <form action="">
-          <label htmlFor={crypto.randomUUID()}>Name</label>
-          <input
+        <StyledAddContactForm>
+          <StyledAddContactLabel htmlFor={crypto.randomUUID()}>
+            Name
+          </StyledAddContactLabel>
+          <StyledAddContactInput
             type="text"
             value={name}
             name="name"
@@ -36,8 +44,10 @@ export class AddContact extends Component {
             onChange={this.handleOnChangeInput}
             required
           />
-          <label htmlFor={crypto.randomUUID()}>Number</label>
-          <input
+          <StyledAddContactLabel htmlFor={crypto.randomUUID()}>
+            Number
+          </StyledAddContactLabel>
+          <StyledAddContactInput
             type="tel"
             value={number}
             name="number"
@@ -46,14 +56,14 @@ export class AddContact extends Component {
             placeholder="000-00-00"
             required
           />
-          <button
+          <StyledAddContactButton
             type="button"
             onClick={this.handleOnClick}
             disabled={!name || !name.trim() || !number || !number.trim()}
           >
             Add Contact
-          </button>
-        </form>
+          </StyledAddContactButton>
+        </StyledAddContactForm>
       </div>
     );
   }

@@ -68,7 +68,7 @@ export class App extends Component {
     return (
       <div
         style={{
-          height: '100vh',
+          marginTop: '20px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -78,9 +78,9 @@ export class App extends Component {
         }}
       >
         <h1>PHONEBOOK</h1>
-        <h2>Contacts</h2>
         <div>
           <AddContact addContact={this.handleAddNewContact} />
+
           <SearchContacts changeFilter={this.handlChangeFilter} />
           <AllContacts
             dataContacts={filteredContact}
