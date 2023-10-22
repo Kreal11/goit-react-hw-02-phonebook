@@ -6,6 +6,7 @@ import {
   StyledAddContactLabel,
   StyledAddContactButton,
 } from './AddContact.styled';
+import PropTypes from 'prop-types';
 
 export class AddContact extends Component {
   state = {
@@ -68,3 +69,9 @@ export class AddContact extends Component {
     );
   }
 }
+
+AddContact.propTypes = {
+  name: PropTypes.string,
+  number: PropTypes.string,
+  addContact: PropTypes.func.isRequired,
+};

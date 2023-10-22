@@ -5,6 +5,7 @@ import {
   StyledContactsHeader,
   StyledSearchInput,
 } from './SearchContact.styled';
+import PropTypes from 'prop-types';
 
 export class SearchContacts extends Component {
   render() {
@@ -27,3 +28,7 @@ export class SearchContacts extends Component {
     );
   }
 }
+
+SearchContacts.propTypes = {
+  changeFilter: PropTypes.func.isRequired,
+};

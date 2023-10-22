@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { OneContactDeleteButton } from './OneContact.styled';
+import PropTypes from 'prop-types';
 
 export class OneContact extends Component {
   render() {
@@ -15,3 +16,10 @@ export class OneContact extends Component {
     );
   }
 }
+
+OneContact.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  deleteContact: PropTypes.func.isRequired,
+};

@@ -16,19 +16,41 @@ export const StyledAddContactLabel = styled.label`
 `;
 
 export const StyledAddContactButton = styled.button`
-  max-width: 100px;
+  max-width: 150px;
   padding: 10px;
   margin: 0 auto;
-  background: linear-gradient(to bottom, #87ceeb, #1e90ff);
-  color: #fff;
-  border-radius: 5px;
   border: none;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+  border-radius: 20px;
+  background-size: 100% auto;
+  font-family: inherit;
+  font-size: 17px;
+  padding: 0.6em 1.5em;
   transition: transform 0.2s;
 
   &:active {
     opacity: 0.7;
     transform: scale(0.95);
+  }
+  &:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+  }
+
+  @keyframes pulse512 {
+    0% {
+      box-shadow: 0 0 0 0 #05bada66;
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
   }
 `;
