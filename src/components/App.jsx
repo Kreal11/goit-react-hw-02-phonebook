@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { AddContact } from './AddContact/AddContact';
 import { AllContacts } from './AllContacts/AllContacts';
 import { SearchContacts } from './SearchContact/SearchContact';
+import Notiflix from 'notiflix';
 
 export class App extends Component {
   state = {
@@ -20,9 +21,18 @@ export class App extends Component {
       position: 'default',
       ...newData,
     };
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
-    }));
+    const existedContact = this.state.contacts.some(contact =>
+      contact.name.toLowerCase().includes(newContact.name.toLowerCase())
+    );
+    if (existedContact) {
+      return Notiflix.Notify.warning(
+        `${newContact.name} is already in contacts`
+      );
+    } else {
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, newContact],
+      }));
+    }
   };
 
   handleDeleteContact = id => {
