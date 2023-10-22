@@ -16,15 +16,26 @@ export class App extends Component {
   };
 
   handleAddNewContact = newData => {
+    const { contacts } = this.state;
+
     const newContact = {
       id: crypto.randomUUID(),
       position: 'default',
       ...newData,
     };
-    const existedContact = this.state.contacts.some(contact =>
-      contact.name.toLowerCase().includes(newContact.name.toLowerCase())
+    const existingContact = contacts.some(
+      contact =>
+        contact.name.toLowerCase().trim() ===
+        newContact.name.toLowerCase().trim()
     );
-    if (existedContact) {
+
+    const existingNameWithoutSpace = contacts.some(
+      contact =>
+        contact.name.toLowerCase().replace(' ', '').trim() ===
+        newContact.name.toLowerCase().replace(' ', '').trim()
+    );
+
+    if (existingContact || existingNameWithoutSpace) {
       return Notiflix.Notify.warning(
         `${newContact.name} is already in contacts`
       );
