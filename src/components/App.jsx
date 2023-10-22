@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { AddContact } from './AddContact/AddContact';
 import { AllContacts } from './AllContacts/AllContacts';
+import { SearchContacts } from './SearchContact/SearchContact';
 
 export class App extends Component {
   state = {
@@ -10,7 +11,7 @@ export class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    name: '',
+    filter: '',
   };
 
   handleAddNewContact = newData => {
@@ -19,14 +20,30 @@ export class App extends Component {
       position: 'default',
       ...newData,
     };
-    console.log(newContact);
     this.setState(prevState => ({
       contacts: [...prevState.contacts, newContact],
     }));
   };
 
+  handleDeleteContact = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
+
+  handleSeacrhContact = () => {
+    const { contacts, filter } = this.state;
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  };
+
+  handlChangeFilter = e => {
+    this.setState({ filter: e.target.value });
+  };
+
   render() {
-    const { contacts } = this.state;
+    const filteredContact = this.handleSeacrhContact();
     return (
       <div
         style={{
@@ -43,7 +60,11 @@ export class App extends Component {
         <h2>Contacts</h2>
         <div>
           <AddContact addContact={this.handleAddNewContact} />
-          <AllContacts dataContacts={contacts} />
+          <SearchContacts changeFilter={this.handlChangeFilter} />
+          <AllContacts
+            dataContacts={filteredContact}
+            deleteContact={this.handleDeleteContact}
+          />
         </div>
       </div>
     );

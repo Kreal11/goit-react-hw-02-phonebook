@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { Component } from 'react';
 import Notiflix from 'notiflix';
 
@@ -7,8 +6,6 @@ export class AddContact extends Component {
     name: '',
     number: '',
   };
-
-  id = nanoid();
 
   handleOnChangeInput = ({ target }) => {
     const { name, value } = target;
@@ -30,22 +27,23 @@ export class AddContact extends Component {
     return (
       <div>
         <form action="">
-          <label htmlFor={this.id}>Name</label>
+          <label htmlFor={crypto.randomUUID()}>Name</label>
           <input
             type="text"
             value={name}
             name="name"
-            id={this.id}
+            id={crypto.randomUUID()}
             onChange={this.handleOnChangeInput}
             required
           />
-          <label htmlFor={this.id}>Number</label>
+          <label htmlFor={crypto.randomUUID()}>Number</label>
           <input
             type="tel"
             value={number}
             name="number"
-            id={this.id}
+            id={crypto.randomUUID()}
             onChange={this.handleOnChangeInput}
+            placeholder="000-00-00"
             required
           />
           <button
