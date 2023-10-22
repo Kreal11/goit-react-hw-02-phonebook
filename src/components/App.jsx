@@ -3,7 +3,6 @@ import { AddContact } from './AddContact/AddContact';
 import { AllContacts } from './AllContacts/AllContacts';
 import { SearchContacts } from './SearchContact/SearchContact';
 import Notiflix from 'notiflix';
-import PropTypes from 'prop-types';
 
 export class App extends Component {
   state = {
