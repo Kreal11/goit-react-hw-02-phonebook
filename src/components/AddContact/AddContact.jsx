@@ -75,7 +75,5 @@ export class AddContact extends Component {
 }
 
 AddContact.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.string,
   addContact: PropTypes.func.isRequired,
 };
