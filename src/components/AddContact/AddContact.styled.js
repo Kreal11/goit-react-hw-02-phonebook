@@ -29,11 +29,11 @@ export const StyledAddContactButton = styled.button`
   padding: 0.6em 1.5em;
   transition: transform 0.2s;
 
-  &:active {
+  &:active:not(:disabled) {
     opacity: 0.7;
     transform: scale(0.95);
   }
-  &:hover {
+  &:hover:not(:disabled) {
     background-position: right center;
     background-size: 200% auto;
     -webkit-animation: pulse 2s infinite;
