@@ -14,6 +14,10 @@ export class AddContact extends Component {
     number: '',
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
   handleOnChangeInput = ({ target }) => {
     const { name, value } = target;
     this.setState({ [name]: value });
@@ -33,7 +37,7 @@ export class AddContact extends Component {
     const { name, number } = this.state;
     return (
       <div>
-        <StyledAddContactForm>
+        <StyledAddContactForm onSubmit={this.handleSubmit}>
           <StyledAddContactLabel htmlFor={crypto.randomUUID()}>
             Name
           </StyledAddContactLabel>

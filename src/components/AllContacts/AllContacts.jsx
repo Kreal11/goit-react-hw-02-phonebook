@@ -14,7 +14,6 @@ export class AllContacts extends Component {
               key={crypto.randomUUID()}
               {...contact}
               deleteContact={deleteContact}
-              // dataSearchedContacts={dataSearchedContacts}
             />
           );
         })}
