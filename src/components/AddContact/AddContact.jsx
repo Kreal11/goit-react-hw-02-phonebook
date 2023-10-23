@@ -16,14 +16,6 @@ export class AddContact extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-  };
-
-  handleOnChangeInput = ({ target }) => {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  };
-
-  handleOnClick = () => {
     const { number } = this.state;
     if (!parseInt(number)) {
       Notiflix.Notify.warning('Please, enter numbers for the phone form');
@@ -31,6 +23,11 @@ export class AddContact extends Component {
     }
     this.props.addContact(this.state);
     this.setState({ name: '', number: '' });
+  };
+
+  handleOnChangeInput = ({ target }) => {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -62,8 +59,6 @@ export class AddContact extends Component {
             required
           />
           <StyledAddContactButton
-            type="button"
-            onClick={this.handleOnClick}
             disabled={!name || !name.trim() || !number || !number.trim()}
           >
             Add Contact
