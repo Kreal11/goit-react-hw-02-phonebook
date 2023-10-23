@@ -21,7 +21,10 @@ export const StyledAddContactButton = styled.button`
   margin: 0 auto;
   border: none;
   color: #fff;
-  background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+  background-image: ${props =>
+    props.disabled
+      ? 'linear-gradient(30deg, gray, gray)'
+      : 'linear-gradient(30deg, #0400ff, #4ce3f7)'};
   border-radius: 20px;
   background-size: 100% auto;
   font-family: inherit;
