@@ -84,7 +84,7 @@ export class App extends Component {
 
           <SearchContacts changeFilter={this.handlChangeFilter} />
           {!contacts.length ? (
-            <p>Sorry, there are no contacts yet😭</p>
+            Notiflix.Notify.warning('There are no contacts yet')
           ) : (
             <AllContacts
               dataContacts={filteredContact}

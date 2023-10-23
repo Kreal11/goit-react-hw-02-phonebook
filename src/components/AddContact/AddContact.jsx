@@ -32,6 +32,7 @@ export class AddContact extends Component {
 
   render() {
     const { name, number } = this.state;
+
     return (
       <div>
         <StyledAddContactForm onSubmit={this.handleSubmit}>
