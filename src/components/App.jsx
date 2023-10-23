@@ -64,6 +64,7 @@ export class App extends Component {
   };
 
   render() {
+    const { contacts } = this.state;
     const filteredContact = this.handleSeacrhContact();
     return (
       <div
@@ -82,10 +83,14 @@ export class App extends Component {
           <AddContact addContact={this.handleAddNewContact} />
 
           <SearchContacts changeFilter={this.handlChangeFilter} />
-          <AllContacts
-            dataContacts={filteredContact}
-            deleteContact={this.handleDeleteContact}
-          />
+          {!contacts.length ? (
+            <p>Sorry, there are no contacts yet😭</p>
+          ) : (
+            <AllContacts
+              dataContacts={filteredContact}
+              deleteContact={this.handleDeleteContact}
+            />
+          )}
         </div>
       </div>
     );
