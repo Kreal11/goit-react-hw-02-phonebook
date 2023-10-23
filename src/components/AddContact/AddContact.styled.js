@@ -23,7 +23,7 @@ export const StyledAddContactButton = styled.button`
   color: #fff;
   background-image: ${props =>
     props.disabled
-      ? 'linear-gradient(30deg, gray, gray)'
+      ? 'linear-gradient(30deg, gray, #333333)'
       : 'linear-gradient(30deg, #0400ff, #4ce3f7)'};
   border-radius: 20px;
   background-size: 100% auto;
